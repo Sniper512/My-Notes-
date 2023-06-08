@@ -1,93 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Notes</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333333;
-        }
-
-        .note {
-            margin-bottom: 20px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #cccccc;
-            border-radius: 4px;
-        }
-
-        .note h2 {
-            margin-top: 0;
-        }
-    </style>
+    <title>Stylish Note Page</title>
+    <link rel="stylesheet" href="saved_notes.css">
+    <script type="module" src="saved_notes.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>User Notes</h1>
-
-        <div id="noteList"></div>
+        <div class="note-card">
+            <h2 class="note-title">Sample Note Title</h2>
+            <p class="note-date">June 8, 2023</p>
+            <p class="note-content">
+               anything
+            </p>
+        </div>
     </div>
-
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js"></script>
-    <script>
-        // Firebase configuration
-        const firebaseConfig = {
-            // Your Firebase config here
-        };
-
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
-
-        // Get the current user's notes from Firebase
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                const userId = user.uid;
-                const userNotesRef = database.ref("users/" + userId + "/notes");
-
-                userNotesRef.on("value", (snapshot) => {
-                    const noteList = document.getElementById("noteList");
-                    noteList.innerHTML = "";
-
-                    snapshot.forEach((childSnapshot) => {
-                        const noteData = childSnapshot.val();
-
-                        // Create note element
-                        const noteElement = document.createElement("div");
-                        noteElement.className = "note";
-
-                        // Create heading element for the note title
-                        const titleElement = document.createElement("h2");
-                        titleElement.textContent = noteData.title;
-
-                        // Create paragraph element for the note content
-                        const contentElement = document.createElement("p");
-                        contentElement.textContent = noteData.content;
-
-                        // Append the title and content to the note element
-                        noteElement.appendChild(titleElement);
-                        noteElement.appendChild(contentElement);
-
-                        // Append the note element to the note list
-                        noteList.appendChild(noteElement);
-                    });
-                });
-            }
-        });
-    </script>
 </body>
 </html>

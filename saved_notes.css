@@ -1,0 +1,38 @@
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.note-card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.note-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.note-date {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.note-content {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.5;
+}

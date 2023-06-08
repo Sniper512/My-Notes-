@@ -131,3 +131,10 @@ function append(note) {
 	document.getElementById("noteTitle").value = "";
 	document.getElementById("noteContent").value = "";
 }
+function showAddNoteSection() {
+	var addNoteSection = document.querySelector('.add-note-section');
+	var showAddNoteBtn = document.getElementById('showAddNoteBtn');
+
+	addNoteSection.style.display = 'block';
+	showAddNoteBtn.style.display = 'none';
+}

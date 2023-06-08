@@ -9,50 +9,26 @@
     <div class="container">
         <h1>My Stylish Notes</h1>
         
-        <form id="noteForm">
-            <h2>Add a Note</h2>
-            <input type="text" id="noteTitle" placeholder="Title" required>
-            <textarea id="noteContent" placeholder="Write your note here..." required></textarea>
-            <div class="form-footer">
-                <button type="submit">Save Note</button>
-            </div>
-        </form>
+        <button id="showAddNoteBtn" class="show-add-note-btn" onclick="showAddNoteSection()">Add a Note</button>
         
-        <div id="noteList"></div>
+        <div class="add-note-section">
+            <form id="noteForm">
+                <h2>Add a Note</h2>
+                <input type="text" id="noteTitle" placeholder="Title" required>
+                <textarea id="noteContent" placeholder="Write your note here..." required></textarea>
+                <div class="form-footer">
+                    <button type="submit">Save Note</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="notes-grid" id="noteList"></div>
+
+        <div class="large-note">
+            <h2 class="large-note-title"></h2>
+            <p class="large-note-content"></p>
+        </div>
     </div>
 
-    <!-- <script>
-        document.getElementById("noteForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
-            // Get the values from the input fields
-            var noteTitle = document.getElementById("noteTitle").value;
-            var noteContent = document.getElementById("noteContent").value;
-            
-            // Create a new note element
-            var noteElement = document.createElement("div");
-            noteElement.className = "note";
-            
-            // Create heading element for the title
-            var titleElement = document.createElement("h2");
-            titleElement.textContent = noteTitle;
-            
-            // Create paragraph element for the note content
-            var contentElement = document.createElement("p");
-            contentElement.textContent = noteContent;
-            
-            // Append the title and content to the note element
-            noteElement.appendChild(titleElement);
-            noteElement.appendChild(contentElement);
-            
-            // Append the note element to the note list
-            var noteList = document.getElementById("noteList");
-            noteList.appendChild(noteElement);
-            
-            // Reset the form fields
-            document.getElementById("noteTitle").value = "";
-            document.getElementById("noteContent").value = "";
-        });
-    </script> -->
 </body>
 </html>
