@@ -1,34 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Stylish Note Page</title>
-    <script type="module" src="notes.js"></script>
-    <link rel="stylesheet" href="notes.css">
-</head>
-<body>
-    <div class="container">
-        <h1>My Stylish Notes</h1>
-        
-        <button id="showAddNoteBtn" class="show-add-note-btn" onclick="showAddNoteSection()">Add a Note</button>
-        
-        <div class="add-note-section">
-            <form id="noteForm">
-                <h2>Add a Note</h2>
-                <input type="text" id="noteTitle" placeholder="Title" required>
-                <textarea id="noteContent" placeholder="Write your note here..." required></textarea>
-                <div class="form-footer">
-                    <button type="submit">Save Note</button>
-                </div>
-            </form>
-        </div>
-        
-        <div class="notes-grid" id="noteList"></div>
+	<head>
+		<title>Stylish Note Page</title>
+		<script type="module" src="notes.js"></script>
+		<link rel="stylesheet" href="notes.css" />
+        <script>
+			function showAddNoteSection() {
+				var addNoteSection = document.querySelector(".add-note-section");
+				var showAddNoteBtn = document.getElementById("showAddNoteBtn");
 
-        <div class="large-note">
-            <h2 class="large-note-title"></h2>
-            <p class="large-note-content"></p>
-        </div>
-    </div>
+				addNoteSection.style.display = "block";
+				showAddNoteBtn.style.display = "none";
+			}
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<h1>My Stylish Notes</h1>
 
-</body>
+			<button
+				id="showAddNoteBtn"
+				class="show-add-note-btn"
+				onclick="showAddNoteSection()"
+			>
+				Add a Note
+			</button>
+
+			<div class="add-note-section">
+				<form id="noteForm">
+					<h2>Add a Note</h2>
+					<input type="text" id="noteTitle" placeholder="Title" required />
+					<textarea
+						id="noteContent"
+						placeholder="Write your note here..."
+						required
+					></textarea>
+					<div class="form-footer">
+						<button type="submit">Save Note</button>
+					</div>
+				</form>
+			</div>
+
+			<div class="notes-grid" id="noteList"></div>
+
+			<div class="large-note">
+				<h2 class="large-note-title"></h2>
+				<p class="large-note-content"></p>
+			</div>
+		</div>
+		
+	</body>
 </html>

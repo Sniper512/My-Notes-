@@ -139,3 +139,23 @@ button:hover {
 .show-add-note-btn {
 	margin-top: 20px;
 }
+.note-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.note-date {
+    font-size: 1rem;
+    margin-right: 10px;
+}
+.note {
+    position: relative;
+}
+
+.delete-button {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: white;
+}

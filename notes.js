@@ -92,49 +92,47 @@ function setter(notes) {
 	}
 }
 function append(note) {
-	var noteTitle = note[1].title;
-	var noteContent = note[1].content;
-	var date = note[1].date;
+    var noteTitle = note[1].title;
+    var noteContent = note[1].content;
+    var date = note[1].date;
 
-	var noteElement = document.createElement("div");
-	noteElement.className = "note";
+    var noteElement = document.createElement("div");
+    noteElement.className = "note";
 
-	var titleElement = document.createElement("h2");
-	titleElement.textContent = noteTitle;
+    var titleElement = document.createElement("h2");
+    titleElement.className = "note-title";
+    titleElement.textContent = noteTitle;
 
-	var contentElement = document.createElement("p");
-	contentElement.textContent = noteContent;
-	var infoElement = document.createElement("div");
-	infoElement.className = "note-info";
-	var deleteButton = document.createElement("button");
-	deleteButton.innerHTML = "&#10005;"; 
-	deleteButton.className = "delete-button";
-	deleteButton.style.position = "absolute";
-	deleteButton.style.bottom = "5px";
-	deleteButton.style.right = "5px";
-	deleteButton.style.color = "white";
-    
+    var dateElement = document.createElement("span");
+    dateElement.className = "note-date";
+    dateElement.textContent = date;
 
-	deleteButton.addEventListener("click", function () {
-		var noteRef = ref(database, "Notes/" + user_id + "/" + note[0]);
-		remove(noteRef);
-	});
+    titleElement.appendChild(dateElement);
 
-	noteElement.appendChild(titleElement);
-	noteElement.appendChild(infoElement);
-	noteElement.appendChild(contentElement);
-	noteElement.appendChild(deleteButton);
+    var contentElement = document.createElement("p");
+    contentElement.textContent = noteContent;
 
-	var noteList = document.getElementById("noteList");
-	noteList.appendChild(noteElement);
+    var infoElement = document.createElement("div");
+    infoElement.className = "note-info";
 
-	document.getElementById("noteTitle").value = "";
-	document.getElementById("noteContent").value = "";
+    var deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "&#10005;";
+    deleteButton.className = "delete-button";
+
+    deleteButton.addEventListener("click", function () {
+        var noteRef = ref(database, "Notes/" + user_id + "/" + note[0]);
+        remove(noteRef);
+    });
+
+    noteElement.appendChild(titleElement);
+    noteElement.appendChild(contentElement);
+    noteElement.appendChild(deleteButton);
+
+    var noteList = document.getElementById("noteList");
+    noteList.appendChild(noteElement);
+
+    document.getElementById("noteTitle").value = "";
+    document.getElementById("noteContent").value = "";
 }
-function showAddNoteSection() {
-	var addNoteSection = document.querySelector('.add-note-section');
-	var showAddNoteBtn = document.getElementById('showAddNoteBtn');
 
-	addNoteSection.style.display = 'block';
-	showAddNoteBtn.style.display = 'none';
-}
+
