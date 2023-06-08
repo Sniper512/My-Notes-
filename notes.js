@@ -6,6 +6,7 @@ import {
 	set,
 	update,
 	onValue,
+	remove,
 } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
 
 import {
@@ -68,7 +69,7 @@ const notesinDB = ref(database, "Notes");
 onValue(notesinDB, function (snapshot) {
 	if (snapshot.exists()) {
 		let notesArray = Object.entries(snapshot.val());
-		 clearResults();
+		clearResults();
 		for (let i = 0; i < notesArray.length; i++) {
 			let note = notesArray[i];
 			setter(note);
@@ -94,34 +95,39 @@ function append(note) {
 	var noteTitle = note[1].title;
 	var noteContent = note[1].content;
 	var date = note[1].date;
-  
+
 	var noteElement = document.createElement("div");
 	noteElement.className = "note";
-  
+
 	var titleElement = document.createElement("h2");
 	titleElement.textContent = noteTitle;
-  
+
 	var contentElement = document.createElement("p");
 	contentElement.textContent = noteContent;
-  
 	var infoElement = document.createElement("div");
 	infoElement.className = "note-info";
-  
-	var dateElement = document.createElement("span");
-	dateElement.textContent = date;
-	dateElement.className = "note-date";
-  
-	infoElement.appendChild(dateElement);
-  
+	var deleteButton = document.createElement("button");
+	deleteButton.innerHTML = "&#10005;"; 
+	deleteButton.className = "delete-button";
+	deleteButton.style.position = "absolute";
+	deleteButton.style.bottom = "5px";
+	deleteButton.style.right = "5px";
+	deleteButton.style.color = "white";
+    
+
+	deleteButton.addEventListener("click", function () {
+		var noteRef = ref(database, "Notes/" + user_id + "/" + note[0]);
+		remove(noteRef);
+	});
+
 	noteElement.appendChild(titleElement);
 	noteElement.appendChild(infoElement);
 	noteElement.appendChild(contentElement);
-  
+	noteElement.appendChild(deleteButton);
+
 	var noteList = document.getElementById("noteList");
 	noteList.appendChild(noteElement);
-  
+
 	document.getElementById("noteTitle").value = "";
 	document.getElementById("noteContent").value = "";
-  }
-  
-  
+}
