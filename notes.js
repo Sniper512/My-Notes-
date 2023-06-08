@@ -5,6 +5,7 @@ import {
 	push,
 	set,
 	update,
+	onValue,
 } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
 
 import {
@@ -57,3 +58,70 @@ form.addEventListener("submit", (e) => {
 	title.value = "";
 	content.value = "";
 });
+
+function clearResults() {
+	var noteList = document.getElementById("noteList");
+	noteList.innerHTML = "";
+}
+const notesinDB = ref(database, "Notes");
+
+onValue(notesinDB, function (snapshot) {
+	if (snapshot.exists()) {
+		let notesArray = Object.entries(snapshot.val());
+		 clearResults();
+		for (let i = 0; i < notesArray.length; i++) {
+			let note = notesArray[i];
+			setter(note);
+		}
+	}
+});
+
+function setter(notes) {
+	if (notes[0] == user_id) {
+		onValue(ref(database, "Notes/" + user_id), function (snapshot) {
+			if (snapshot.exists()) {
+				let notesArray = Object.entries(snapshot.val());
+				clearResults();
+				for (let i = 0; i < notesArray.length; i++) {
+					let note = notesArray[i];
+					append(note);
+				}
+			}
+		});
+	}
+}
+function append(note) {
+	var noteTitle = note[1].title;
+	var noteContent = note[1].content;
+	var date = note[1].date;
+  
+	var noteElement = document.createElement("div");
+	noteElement.className = "note";
+  
+	var titleElement = document.createElement("h2");
+	titleElement.textContent = noteTitle;
+  
+	var contentElement = document.createElement("p");
+	contentElement.textContent = noteContent;
+  
+	var infoElement = document.createElement("div");
+	infoElement.className = "note-info";
+  
+	var dateElement = document.createElement("span");
+	dateElement.textContent = date;
+	dateElement.className = "note-date";
+  
+	infoElement.appendChild(dateElement);
+  
+	noteElement.appendChild(titleElement);
+	noteElement.appendChild(infoElement);
+	noteElement.appendChild(contentElement);
+  
+	var noteList = document.getElementById("noteList");
+	noteList.appendChild(noteElement);
+  
+	document.getElementById("noteTitle").value = "";
+	document.getElementById("noteContent").value = "";
+  }
+  
+  
