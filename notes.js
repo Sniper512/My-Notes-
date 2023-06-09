@@ -100,6 +100,12 @@ function append(note) {
     noteElement.className = "note";
 
     var titleElement = document.createElement("h2");
+	titleElement.addEventListener("click", function () {
+		localStorage.setItem("note_id", note[0]);
+		window.location.href = "saved_notes.html";
+	});
+	
+	titleElement.style.cursor = "pointer";
     titleElement.className = "note-title";
     titleElement.textContent = noteTitle;
 

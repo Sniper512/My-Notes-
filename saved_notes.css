@@ -1,38 +1,70 @@
 body {
-    background-color: #f5f5f5;
+    background-color: #f2f2f2;
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px;
-}
-
-.note-card {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
+}
+
+h1 {
+    color: #333333;
     margin-bottom: 20px;
 }
 
-.note-title {
+#noteDetails {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+#noteTitle {
+    color: #333333;
     font-size: 24px;
-    color: #333;
     margin-bottom: 10px;
 }
-
-.note-date {
+#inputTitle:active{
+    border: none;
+    outline: none;
+}
+#noteDate {
+    color: #999999;
     font-size: 14px;
-    color: #888;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    display: block;
 }
 
-.note-content {
-    font-size: 18px;
-    color: #555;
+#noteContent {
+    color: #555555;
+    font-size: 16px;
     line-height: 1.5;
 }
+h2:focus{
+    border: none;
+    outline: none;
+}
+p:focus{
+    border: none;
+    outline: none;
+}
+#noteDetails {
+    position: relative;
+}
+
+#saveButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -3rem;
+    margin-right: 3rem;
+    background-color: green;
+    color:white;
+    padding: 0.6rem 1.8rem;
+    border:none;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+.pressed {
+    transform: scale(0.95);
+    box-shadow: none;
+}
+

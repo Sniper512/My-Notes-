@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Stylish Note Page</title>
-    <link rel="stylesheet" href="saved_notes.css">
+    <title>Note Details</title>
+    <link rel="stylesheet" href="saved_notes.css" />
     <script type="module" src="saved_notes.js"></script>
+    <script>
+        function addPressedClass() {
+            const saveButton = document.getElementById("saveButton");
+            saveButton.classList.add("pressed");
+                    setTimeout(function() {
+                saveButton.classList.remove("pressed");
+            }, 100);
+        }
+        
+    </script>
 </head>
 <body>
-    <div class="container">
-        <div class="note-card">
-            <h2 class="note-title">Sample Note Title</h2>
-            <p class="note-date">June 8, 2023</p>
-            <p class="note-content">
-               anything
-            </p>
-        </div>
+    <h1>Note Details</h1>
+
+    <div id="noteDetails">
+        <h2 id="noteTitle" contenteditable="true">Loading...</h2>
+        <span id="noteDate"></span>
+        <p id="noteContent" contenteditable="true" style="border: none;">Loading...</p>
+
+        <button id="saveButton" onclick="addPressedClass()">Save</button>
     </div>
 </body>
 </html>
