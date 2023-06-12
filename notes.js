@@ -88,6 +88,12 @@ function setter(notes) {
 				}
 			}
 		});
+		onValue(ref(database, "users/" + user_id), function (snapshot) {
+			if (snapshot.exists()) {
+			document.getElementById("title").innerHTML = snapshot.val().username+"'s Notes";
+			}
+		});
+
 	}
 }
 function append(note) {
