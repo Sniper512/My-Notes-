@@ -104,3 +104,27 @@ button:hover {
 .add-note-section {
     display: none;
 }
+/* Add this CSS code to your existing notes.css file */
+
+@media only screen and (max-width: 768px) {
+    /* Styles for mobile screens */
+  
+    .show-add-note-btn {
+      font-size: 8rem;
+      padding: 8rem 4rem;
+    }
+  
+    .add-note-section {
+      display: block;
+      margin-top: 20px;
+    }
+  
+    .add-note-section form {
+      padding: 0 20px;
+    }
+  
+    .form-footer {
+      justify-content: center;
+    }
+  }
+  
