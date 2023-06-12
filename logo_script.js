@@ -8,4 +8,4 @@ image.style.display = "block";
 setTimeout(function() {
   // Redirect to the next page
   window.location.href = "sign_up.html";
-}, 300000); // 3000 milliseconds = 3 seconds
+}, 3000); // 3000 milliseconds = 3 seconds
