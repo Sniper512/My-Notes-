@@ -79,12 +79,12 @@ button:hover {
 
 .delete-button {
     color: white;
-    /* Add any additional styles as needed */
 }
 
 .notes-grid {
     display: grid;
     grid-gap: 20px;
+    grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .note-card {
@@ -100,20 +100,7 @@ button:hover {
 .note-card:hover {
     transform: scale(1.1); /* Increase the scale on hover */
 }
+
 .add-note-section {
     display: none;
-}
-
-/* Media query for mobile screens */
-@media (max-width: 767px) {
-    .notes-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Media query for PC screens */
-@media (min-width: 768px) {
-    .notes-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
