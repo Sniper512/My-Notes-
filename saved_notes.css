@@ -9,7 +9,9 @@ h1 {
     color: #333333;
     margin-bottom: 20px;
 }
-
+.title {
+    font-size: 2.5rem;
+}
 #noteDetails {
     background-color: white;
     border-radius: 8px;
@@ -54,6 +56,7 @@ p:focus{
     position: absolute;
     top: 0;
     right: 0;
+    font-size: 1.2rem;
     margin-top: -3rem;
     margin-right: 3rem;
     background-color: green;
@@ -68,3 +71,12 @@ p:focus{
     box-shadow: none;
 }
 
+@media only screen and (max-width: 600px) {
+    .title {
+        font-size: 1.5rem;
+    }
+    #saveButton {
+        font-size: 1rem;
+        margin-right: 1rem;
+    }
+}

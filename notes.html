@@ -2,13 +2,14 @@
 <html>
 	<head>
 		<title>Stylish Note Page</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<script type="module" src="notes.js"></script>
 		<link rel="stylesheet" href="notes.css" />
-        <script>
+		<script>
 			function showAddNoteSection() {
 				var addNoteSection = document.querySelector(".add-note-section");
 				var showAddNoteBtn = document.getElementById("showAddNoteBtn");
-			
+
 				if (addNoteSection.style.display === "none") {
 					addNoteSection.style.display = "block";
 					showAddNoteBtn.innerText = "Hide Note Form";
@@ -17,7 +18,6 @@
 					showAddNoteBtn.innerText = "Add a Note";
 				}
 			}
-			
 		</script>
 	</head>
 	<body>
@@ -46,7 +46,6 @@
 					</div>
 				</form>
 			</div>
-
 			<div class="notes-grid" id="noteList"></div>
 
 			<div class="large-note">
@@ -54,6 +53,5 @@
 				<p class="large-note-content"></p>
 			</div>
 		</div>
-		
 	</body>
 </html>

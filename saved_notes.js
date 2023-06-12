@@ -56,4 +56,5 @@ saveButton.addEventListener("click", (e) => {
 		date: formattedDate,
 	});
 	alert("Note updated successfully");
+	window.location.href = "notes.html";
 });
