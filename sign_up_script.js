@@ -36,14 +36,15 @@ const auth = getAuth(app);
 const button = document.getElementById("button");
 button.addEventListener("click", (e) => {
 	e.preventDefault();
-	const email = document.getElementById("email").value;
-	const password = document.getElementById("password").value;
-	const username = document.getElementById("username").value;
+	const email = document.getElementById("form3Example3c").value;
+	const password = document.getElementById("form3Example4c").value;
+	const username = document.getElementById("form3Example1c").value;
+
 	createUserWithEmailAndPassword(auth, email, password)
 		.then((userCredential) => {
 			var user = userCredential.user;
-			const dt=new Date();
-			set(ref(database, "users/"+user.uid), {
+			const dt = new Date();
+			set(ref(database, "users/" + user.uid), {
 				username: username,
 				email: email,
 				password: password,
@@ -52,9 +53,9 @@ button.addEventListener("click", (e) => {
 			signInWithEmailAndPassword(auth, email, password).then(
 				(userCredential) => {
 					var user = userCredential.user;
-                    localStorage.setItem("user_id", user.uid);
-					alert("signed in");
-					window.location.href="notes.html";
+					localStorage.setItem("user_id", user.uid);
+					alert("Signed in");
+					window.location.href = "notes.html";
 				}
 			);
 		})
@@ -64,6 +65,3 @@ button.addEventListener("click", (e) => {
 			console.log(errorCode, errorMessage);
 		});
 });
-
-
-

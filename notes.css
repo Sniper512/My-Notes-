@@ -1,169 +1,119 @@
 body {
-	font-family: Arial, sans-serif;
-	background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
 }
 
 .container {
-	max-width: 600px;
-	margin: 0 auto;
-	padding: 20px;
-	background-color: #ffffff;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 85%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-	text-align: center;
-	color: #333333;
+    text-align: center;
+    color: #333333;
 }
 
 h2 {
-	color: #333333;
+    color: #333333;
 }
 
 input[type="text"],
 textarea {
-	width: 95%;
-	padding: 10px;
-	margin-bottom: 10px;
-	border: 1px solid #cccccc;
-	border-radius: 4px;
-	resize: vertical;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    resize: vertical;
 }
 
 .form-footer {
-	display: flex;
-	justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
 }
 
 button {
-	background-color: #4caf50;
-	color: #ffffff;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-	margin-left: 10px;
-	margin-bottom: 20px; /* Adjust the margin-bottom value as per your preference */
+    background-color: #4caf50;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-bottom: 20px; /* Adjust the margin-bottom value as per your preference */
 }
 
 button:hover {
-	background-color: #45a049;
+    background-color: #45a049;
 }
 
 .note {
-	margin-bottom: 20px;
-	padding: 10px;
-	background-color: #f9f9f9;
-	border: 1px solid #cccccc;
-	border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
 }
 
 .note h2 {
-	margin-top: 0;
-}
-.note {
-	position: relative;
+    margin-top: 0;
 }
 
-.note-info {
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
-.note-date {
-	display: inline-block;
-	margin-left: 10px;
-}
-.delete-button {
-	color: white;
-	/* Add any additional styles as needed */
-}
-.container {
-	max-width: 85%;
-	margin: 0 auto;
-}
-
-.notes-grid {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr); /* 2 notes in each row */
-	grid-gap: 3%; /* Adjust the gap between notes */
-}
-
-.note-card {
-	background-color: #f2f2f2;
-	padding: 20px;
-	border-radius: 5px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	text-align: center;
-	font-size: 18px;
-	cursor: pointer;
-}
-
-.note-card:hover {
-	transform: scale(1.1); /* Increase the scale on hover */
-}
-
-.large-note {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 80%;
-	max-width: 600px;
-	background-color: #fff;
-	padding: 40px;
-	border-radius: 5px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	z-index: 9999;
-	display: none; /* Initially hide the large note */
-}
-
-.large-note.active {
-	display: block; /* Show the large note when active */
-}
-
-.large-note-title {
-	font-size: 24px;
-	margin-bottom: 10px;
-}
-
-.large-note-content {
-	font-size: 18px;
-}
-
-.add-note-section {
-	display: none; 
-}
-
-.show-add-note-btn {
-	margin-top: 20px;
-}
-.note-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.note-date {
-    font-size: 1rem;
-    margin-right: 10px;
-}
 .note {
     position: relative;
 }
 
-.delete-button {
+.note-info {
     position: absolute;
-    bottom: 5px;
-    right: 5px;
+    top: 0;
+    right: 0;
+}
+
+.note-date {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.delete-button {
     color: white;
+    /* Add any additional styles as needed */
 }
-#noteTitle:focus{
-	outline: none;
-	border: none;
+
+.notes-grid {
+    display: grid;
+    grid-gap: 20px;
 }
-#noteContent:focus{
-	outline: none;
-	border: none;
+
+.note-card {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.note-card:hover {
+    transform: scale(1.1); /* Increase the scale on hover */
+}
+.add-note-section {
+    display: none;
+}
+
+/* Media query for mobile screens */
+@media (max-width: 767px) {
+    .notes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Media query for PC screens */
+@media (min-width: 768px) {
+    .notes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

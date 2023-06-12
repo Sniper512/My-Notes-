@@ -8,10 +8,16 @@
 			function showAddNoteSection() {
 				var addNoteSection = document.querySelector(".add-note-section");
 				var showAddNoteBtn = document.getElementById("showAddNoteBtn");
-
-				addNoteSection.style.display = "block";
-				showAddNoteBtn.style.display = "none";
+			
+				if (addNoteSection.style.display === "none") {
+					addNoteSection.style.display = "block";
+					showAddNoteBtn.innerText = "Hide Note Form";
+				} else {
+					addNoteSection.style.display = "none";
+					showAddNoteBtn.innerText = "Add a Note";
+				}
 			}
+			
 		</script>
 	</head>
 	<body>

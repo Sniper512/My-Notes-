@@ -41,7 +41,6 @@ const title = document.querySelector("#noteTitle");
 const content = document.querySelector("#noteContent");
 
 const auth = getAuth(app);
-
 form.addEventListener("submit", (e) => {
 	e.preventDefault();
 	const dt = new Date();

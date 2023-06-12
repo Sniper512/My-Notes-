@@ -30,12 +30,12 @@ const analytics = getAnalytics(app);
 const database = getDatabase(app);
 const auth = getAuth(app);
 
-const loginButton = document.getElementById("login-button");
+const loginButton = document.getElementById("button");
 
 loginButton.addEventListener("click", (e) => {
 	e.preventDefault();
-	const email = document.getElementById("email").value;
-	const password = document.getElementById("password").value;
+	const email = document.getElementById("form3Example3c").value;
+	const password = document.getElementById("form3Example4c").value;
 	signInWithEmailAndPassword(auth, email, password)
 		.then((userCredential) => {
 			const dt = new Date();
