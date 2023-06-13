@@ -90,60 +90,67 @@ function setter(notes) {
 		});
 		onValue(ref(database, "users/" + user_id), function (snapshot) {
 			if (snapshot.exists()) {
-			document.getElementById("title").innerHTML = snapshot.val().username+"'s Notes";
+				document.getElementById("title").innerHTML =
+					snapshot.val().username + "'s Notes";
 			}
 		});
-
 	}
 }
 function append(note) {
-    var noteTitle = note[1].title;
-    var noteContent = note[1].content;
-    var date = note[1].date;
+	var noteTitle = note[1].title;
+	var noteContent = note[1].content;
+	var date = note[1].date;
 
-    var noteElement = document.createElement("div");
-    noteElement.className = "note";
+	var noteElement = document.createElement("div");
+	noteElement.className = "note";
 
-    var titleElement = document.createElement("h2");
+	var titleElement = document.createElement("h2");
+    var editButton = document.createElement("button");
+    editButton.innerHTML = "Edit";
+    editButton.className = "edit-button";
+    editButton.addEventListener("click", function () {
+        localStorage.setItem("note_id", note[0]);
+        window.location.href = "saved_notes.html";
+    });
+
+    titleElement.appendChild(editButton);	
 	titleElement.addEventListener("click", function () {
 		localStorage.setItem("note_id", note[0]);
 		window.location.href = "saved_notes.html";
 	});
-	
+
 	titleElement.style.cursor = "pointer";
-    titleElement.className = "note-title";
-    titleElement.textContent = noteTitle;
+	titleElement.className = "note-title";
+	titleElement.textContent = noteTitle;
 
-    var dateElement = document.createElement("span");
-    dateElement.className = "note-date";
-    dateElement.textContent = date;
+	var dateElement = document.createElement("span");
+	dateElement.className = "note-date";
+	dateElement.textContent = date;
 
-    titleElement.appendChild(dateElement);
+	titleElement.appendChild(dateElement);
 
-    var contentElement = document.createElement("p");
-    contentElement.textContent = noteContent;
+	var contentElement = document.createElement("p");
+	contentElement.textContent = noteContent;
 
-    var infoElement = document.createElement("div");
-    infoElement.className = "note-info";
+	var infoElement = document.createElement("div");
+	infoElement.className = "note-info";
 
-    var deleteButton = document.createElement("button");
-    deleteButton.innerHTML = "&#10005;";
-    deleteButton.className = "delete-button";
+	var deleteButton = document.createElement("button");
+	deleteButton.innerHTML = "&#10005;";
+	deleteButton.className = "delete-button";
 
-    deleteButton.addEventListener("click", function () {
-        var noteRef = ref(database, "Notes/" + user_id + "/" + note[0]);
-        remove(noteRef);
-    });
+	deleteButton.addEventListener("click", function () {
+		var noteRef = ref(database, "Notes/" + user_id + "/" + note[0]);
+		remove(noteRef);
+	});
 
-    noteElement.appendChild(titleElement);
-    noteElement.appendChild(contentElement);
-    noteElement.appendChild(deleteButton);
+	noteElement.appendChild(titleElement);
+	noteElement.appendChild(contentElement);
+	noteElement.appendChild(deleteButton);
 
-    var noteList = document.getElementById("noteList");
-    noteList.appendChild(noteElement);
+	var noteList = document.getElementById("noteList");
+	noteList.appendChild(noteElement);
 
-    document.getElementById("noteTitle").value = "";
-    document.getElementById("noteContent").value = "";
+	document.getElementById("noteTitle").value = "";
+	document.getElementById("noteContent").value = "";
 }
-
-

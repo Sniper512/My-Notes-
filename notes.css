@@ -62,6 +62,13 @@ button:hover {
 	border: 1px solid #cccccc;
 	border-radius: 4px;
 }
+.edit-button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
 
 .note h2 {
 	margin-top: 0;
