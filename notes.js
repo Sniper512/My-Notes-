@@ -109,6 +109,7 @@ function append(note) {
     editButton.innerHTML = "Edit";
     editButton.className = "edit-button";
     editButton.addEventListener("click", function () {
+	    console.log(note[0]);
         localStorage.setItem("note_id", note[0]);
         window.location.href = "saved_notes.html";
     });
